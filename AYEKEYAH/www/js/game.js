@@ -52,7 +52,7 @@ Game.prototype.onInputClick = function() {
 }
 
 // Handler to store position when the mouse is moved
-Game.prototype.onMouseMove = function() {
+Game.prototype.onMouseMove = function(event) {
 	event.preventDefault();
 
 	this.mousePos = new THREE.Vector2(
@@ -62,7 +62,7 @@ Game.prototype.onMouseMove = function() {
 }
 
 // Attempts to fullscreen the application
-Game.prototype.fullscreen = function() {
+/*Game.prototype.fullscreen = function() {
 	var glFrame = this.glFrame;
 
 	if (glFrame.requestFullscreen) {
@@ -77,7 +77,7 @@ Game.prototype.fullscreen = function() {
 	else if (glFrame.webkitRequestFullscreen) {
 		glFrame.webkitRequestFullscreen();
 	}
-}
+}*/
 
 // Resizes the canvas to make sure it takes up the correct space
 // and that it has the correct aspect ratio
@@ -97,7 +97,7 @@ Game.prototype.resizeCanvas = function(state, camera) {
 Game.prototype.update = function() {
 	this.frametime = this.clock.getDelta();
 
-	if(this.isFullScreen) this.fullscreen();
+	//if(this.isFullScreen) this.fullscreen();
 
 	if(this.states.length > 0) {
 		this.states[this.states.length - 1].update(this.frametime);
